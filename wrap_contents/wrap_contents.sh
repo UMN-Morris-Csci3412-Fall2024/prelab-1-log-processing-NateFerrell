@@ -16,4 +16,4 @@ footer_file="${specifier}_footer.html"
 # Concatenate the header, content, and footer files
 cat "$header_file" "$content_file" "$footer_file" > "$output_file"
 
-# Notes
+# Notes attempt 2 
