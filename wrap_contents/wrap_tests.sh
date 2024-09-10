@@ -6,6 +6,8 @@ load '../test/test_helper/bats-file/load'
 
 # Create a temporary scratch directory for the shell script to work in.
 setup() {
+
+  
   BATS_TMPDIR=$(temp_make --prefix 'wrapping-')
 
   # The comments below disable a shellcheck warning that would
@@ -47,18 +49,22 @@ teardown() {
 
 # If this test fails, your script file doesn't exist, or there's
 # a typo in the name, or it's in the wrong directory, etc.
-@test "wrap_contents.sh exists" {
+@test "wrap_contents.sh exists"
+ {
   assert_file_exist "wrap_contents.sh"
 }
 
 # If this test fails, your script isn't executable.
-@test "wrap_contents.sh is executable" {
+@test "wrap_contents.sh is executable" 
+./wrap_contents.sh gloop.txt bits target.html
+{
   assert_file_executable "wrap_contents.sh"
 }
 
 # If this test fails, your script either didn't run at all, or it
 # generated some sort of error when it ran.
-@test "wrap_contents.sh runs successfully" {
+@test "wrap_contents.sh runs successfully"  
+{
   cd simple_example
   run ../wrap_contents.sh test_middle.txt test_ends result.html
   assert_success
@@ -68,7 +74,8 @@ teardown() {
 # for test_middle.txt and test_ends. You probably want to run your
 # script by hand and compare the results to the expected output
 # in test_output.html.
-@test "wrap_contents.sh generates correct simple output" {
+@test "wrap_contents.sh generates correct simple output"
+ {
   cd simple_example
   ../wrap_contents.sh test_middle.txt test_ends result.html
   run diff -wbB test_output.html result.html
@@ -79,7 +86,8 @@ teardown() {
 # for the plotting example. You probably want to run your script by
 # hand and compare the results to the expected output in
 # chart_example/sample_chart.html
-@test "wrap_contents.sh generates correct plot output" {
+@test "wrap_contents.sh generates correct plot output"
+ {
   cd chart_example
   ../wrap_contents.sh meats.txt bread chart_result.html
   run diff -wbB sample_chart.html chart_result.html
