@@ -2,3 +2,6 @@
 * I am Nic. My favorite sandwich is avocado.
 * I am awesome. I love puppies, but I don't like sandwiches.
 * I am Vincent. My favorite sandwich is ham.
+
+
+sed -n -E 's/\* I am ([a-zA-Z]+). My favorite sandwich is ([a-zA-Z]+)./1. \1\n2. \2\n/p' r1_input.txt > r1_output.txt

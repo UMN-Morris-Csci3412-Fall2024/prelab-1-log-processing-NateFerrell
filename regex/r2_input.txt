@@ -1,3 +1,6 @@
 * sandwich with turkey.bacon.swiss. for here
 * sandwich with ham.cheddar. to go
 * sandwich with tunaSalad. to go
+
+
+awk -F' with |. for |. to ' 'BEGIN {OFS = "\n"} {print "1. " $2, "2. " $3 "\n"}' r2_input.txt > r2_output.txt
